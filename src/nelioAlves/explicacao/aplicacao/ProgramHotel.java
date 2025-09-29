@@ -31,7 +31,6 @@ public class ProgramHotel {
 			Reservation reservation = new Reservation(number, checkIn, checkOut);
 			System.out.println("Reservation: " + reservation);
 			
-			
 			System.out.println();
 			System.out.println("Enter data to update the reservation: ");
 			
