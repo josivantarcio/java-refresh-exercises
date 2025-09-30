@@ -2,8 +2,8 @@ package nelioAlves.explicacao.aplicacao;
 
 import java.util.Date;
 
-import nelioAlves.explicacao.entities.Order;
-import nelioAlves.explicacao.entities.enums.OrderStatus;
+import nelioAlves.explicacao.model.entities.Order;
+import nelioAlves.explicacao.model.enums.OrderStatus;
 
 public class EstudandoEnum {
 

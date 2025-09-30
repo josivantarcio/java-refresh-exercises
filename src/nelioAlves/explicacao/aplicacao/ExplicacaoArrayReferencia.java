@@ -2,7 +2,7 @@ package nelioAlves.explicacao.aplicacao;
 
 import java.util.Scanner;
 
-import nelioAlves.explicacao.entities.Produtos;
+import nelioAlves.explicacao.model.entities.Produtos;
 
 public class ExplicacaoArrayReferencia {
 

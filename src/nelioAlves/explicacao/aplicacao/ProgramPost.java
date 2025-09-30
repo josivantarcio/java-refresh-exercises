@@ -3,8 +3,8 @@ package nelioAlves.explicacao.aplicacao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import nelioAlves.explicacao.entities.Comments;
-import nelioAlves.explicacao.entities.Post;
+import nelioAlves.explicacao.model.entities.Comments;
+import nelioAlves.explicacao.model.entities.Post;
 
 public class ProgramPost {
 

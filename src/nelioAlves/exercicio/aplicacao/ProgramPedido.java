@@ -9,7 +9,7 @@ import nelioAlves.exercicio.entities.Client;
 import nelioAlves.exercicio.entities.Order;
 import nelioAlves.exercicio.entities.OrderItem;
 import nelioAlves.exercicio.entities.Product;
-import nelioAlves.explicacao.entities.enums.OrderStatus;
+import nelioAlves.exercicio.entities.enums.OrderStatus;
 
 public class ProgramPedido {
 

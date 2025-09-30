@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import nelioAlves.explicacao.entities.Employees;
-import nelioAlves.explicacao.entities.Outsourced;
+import nelioAlves.explicacao.model.entities.Employees;
+import nelioAlves.explicacao.model.entities.Outsourced;
 
 public class ComissaoFuncionarios {
 

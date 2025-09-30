@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import nelioAlves.explicacao.entities.Department;
-import nelioAlves.explicacao.entities.enums.WorkerLevel;
-import nelioAlves.explicacao.util.HourContract;
-import nelioAlves.explicacao.util.Worker;
+import nelioAlves.explicacao.model.entities.Department;
+import nelioAlves.explicacao.model.enums.WorkerLevel;
+import nelioAlves.explicacao.model.util.HourContract;
+import nelioAlves.explicacao.model.util.Worker;
 
 public class Composition {
 
