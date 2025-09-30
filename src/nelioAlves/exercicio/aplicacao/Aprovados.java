@@ -2,7 +2,7 @@ package nelioAlves.exercicio.aplicacao;
 
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.Aluno;
+import nelioAlves.exercicio.model.entities.Aluno;
 
 public class Aprovados {
 

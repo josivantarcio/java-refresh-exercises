@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.Client;
-import nelioAlves.exercicio.entities.Order;
-import nelioAlves.exercicio.entities.OrderItem;
-import nelioAlves.exercicio.entities.Product;
-import nelioAlves.exercicio.entities.enums.OrderStatus;
+import nelioAlves.exercicio.model.entities.Client;
+import nelioAlves.exercicio.model.entities.Order;
+import nelioAlves.exercicio.model.entities.OrderItem;
+import nelioAlves.exercicio.model.entities.Product;
+import nelioAlves.exercicio.model.enums.OrderStatus;
 
 public class ProgramPedido {
 

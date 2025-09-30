@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.ImportedProduct;
-import nelioAlves.exercicio.entities.Product;
-import nelioAlves.exercicio.entities.UsedProduct;
+import nelioAlves.exercicio.model.entities.ImportedProduct;
+import nelioAlves.exercicio.model.entities.Product;
+import nelioAlves.exercicio.model.entities.UsedProduct;
 
 public class DadosProducts {
 

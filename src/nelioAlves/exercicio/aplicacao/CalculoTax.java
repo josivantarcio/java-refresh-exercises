@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.Company;
-import nelioAlves.exercicio.entities.Individual;
-import nelioAlves.exercicio.entities.TaxPayer;
+import nelioAlves.exercicio.model.entities.Company;
+import nelioAlves.exercicio.model.entities.Individual;
+import nelioAlves.exercicio.model.entities.TaxPayer;
 
 public class CalculoTax {
 

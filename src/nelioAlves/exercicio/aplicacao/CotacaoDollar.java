@@ -2,7 +2,7 @@ package nelioAlves.exercicio.aplicacao;
 
 import java.util.Scanner;
 
-import nelioAlves.exercicio.util.CurrencyConverter;
+import nelioAlves.exercicio.model.util.CurrencyConverter;
 
 public class CotacaoDollar {
 	public static void main(String[] args) {

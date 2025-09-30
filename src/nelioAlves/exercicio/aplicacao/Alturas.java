@@ -2,7 +2,7 @@ package nelioAlves.exercicio.aplicacao;
 
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.Pessoa;
+import nelioAlves.exercicio.model.entities.Pessoa;
 
 public class Alturas {
 

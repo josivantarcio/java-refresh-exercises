@@ -2,7 +2,7 @@ package nelioAlves.exercicio.aplicacao;
 
 import java.util.Scanner;
 
-import nelioAlves.exercicio.entities.Correntista;
+import nelioAlves.exercicio.model.entities.Correntista;
 
 public class ContaBancaria {
 
