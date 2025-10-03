@@ -8,9 +8,7 @@ public class LendoArquivo {
 	public static void main(String[] args) {
 
 		Scanner sc = null;
-		try {
-
-			InputStream in = LendoArquivo.class.getResourceAsStream("/in.txt");
+		try (InputStream in = LendoArquivo.class.getResourceAsStream("/in.txt")) {
 			if (in == null) {
 				throw new IllegalArgumentException("Don't found file or don't exist");
 			}
