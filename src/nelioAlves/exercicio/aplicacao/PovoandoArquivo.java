@@ -14,66 +14,61 @@ import nelioAlves.exercicio.model.entities.Produto;
 
 public class PovoandoArquivo {
 
-	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
-		Scanner strSc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
 
-		try {
+        try (Scanner console = new Scanner(System.in)) {
 
-			System.out.println("Digite o caminho da origem:");
-			String strPathOrigem = strSc.nextLine();
+            System.out.print("Digite o caminho da origem: ");
+            String origemPath = console.nextLine();
 
-			List<Produto> produtos = new ArrayList<>();
+            List<Produto> produtos = lerProdutos(origemPath);
 
-			try (InputStream is = new FileInputStream(strPathOrigem); Scanner sc = new Scanner(is)) {
+            File outFile = criarArquivoSaida(origemPath, "summary.txt");
+            escreverProdutos(produtos, outFile);
 
-				while (sc.hasNextLine()) {
+            System.out.println("Arquivo criado em: " + outFile.getAbsolutePath());
 
-					String line = sc.nextLine();
-					String[] campos = line.split(",");
-					String nome = campos[0];
-					Double preco = Double.valueOf(campos[1]);
-					Double quantidade = Double.valueOf(campos[2]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-					Produto prod = new Produto(nome, preco, quantidade);
-					produtos.add(prod);
+    private static List<Produto> lerProdutos(String origemPath) throws Exception {
+        List<Produto> produtos = new ArrayList<>();
 
-				}
-			}
+        try (InputStream is = new FileInputStream(origemPath);
+             Scanner sc = new Scanner(is)) {
 
-			// criacao da pasta de saída
-			File sourceFile = new File(strPathOrigem);
-			File parentFolder = sourceFile.getParentFile();
+            while (sc.hasNextLine()) {
+                String[] campos = sc.nextLine().split(",");
+                produtos.add(new Produto(
+                        campos[0],
+                        Double.parseDouble(campos[1]),
+                        Double.parseDouble(campos[2])
+                ));
+            }
+        }
+        return produtos;
+    }
 
-			File outFolder = new File(parentFolder, "out");
-			if (!outFolder.exists()) {
-				boolean newFolder = outFolder.mkdir();
-				if (!newFolder) {
-					throw new IllegalArgumentException("Pasta nao foi criada");
-				}
-			}
+    private static File criarArquivoSaida(String origemPath, String nomeArquivo) {
+        File parentFolder = new File(origemPath).getParentFile();
+        File outFolder = new File(parentFolder, "out");
 
-			// criacao do arquivo destino
-			File outFile = new File(outFolder, "summary2.txt");
+        if (!outFolder.exists() && !outFolder.mkdir()) {
+            throw new IllegalStateException("Não foi possível criar a pasta de saída");
+        }
 
-			// escrever no arquivo destino
-			try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+        return new File(outFolder, nomeArquivo);
+    }
 
-				for (Produto p : produtos) {
-					bw.write(p.toString());
-					bw.newLine();
-				}
-
-			}
-
-			System.out.println("Arquivo criado em: " + outFile.getAbsolutePath());
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (strSc != null) {
-				strSc.close();
-			}
-		}
-	}
+    private static void escreverProdutos(List<Produto> produtos, File outFile) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+            for (Produto p : produtos) {
+                bw.write(p.toString());
+                bw.newLine();
+            }
+        }
+    }
 }
