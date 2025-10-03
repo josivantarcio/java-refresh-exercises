@@ -14,13 +14,15 @@ public class ListaPastas {
 			String strPath = sc.nextLine();
 			
 			File path = new File(strPath);
-			File[] folders = path.listFiles(File::isDirectory);
+			File[] files = path.listFiles(File::isFile);
 			
-			for(File f : folders) {
-				System.out.println(f);
-			}
+			System.out.println("Lista de Arquivos:");
+			for (File file : files) {
+				System.out.println(file);
 			
-			
+			}			
+			boolean subFolder = new File(strPath + "/temp").mkdir();
+			System.out.println(subFolder ? "Criado com Sucesso" : "Houve um erro na criacao");
 			
 			
 		}finally {
