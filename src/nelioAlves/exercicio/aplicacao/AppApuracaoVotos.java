@@ -11,38 +11,42 @@ public class AppApuracaoVotos {
 
 	public static void main(String[] args) {
 
-		Scanner sc = null;
-		try (InputStream in = AppApuracaoVotos.class.getResourceAsStream("/urna001.txt")) {
-			sc = new Scanner(in);
+		String resourcePath = "/resources/urna001.txt";
+		if (args.length > 0) {
+			resourcePath = args[0];
+		}
 
-			Map<Candidatos, Integer> votos = new HashMap<>();
-
-			while (sc.hasNextLine()) {
-				String[] linhas = sc.nextLine().split(",");
-				String nome = linhas[0];
-				Integer apurados = Integer.parseInt(linhas[1]);
-
-				Candidatos candidatos = new Candidatos(nome, apurados);
-				if (votos.containsKey(candidatos)) {
-					votos.put(candidatos, votos.get(candidatos) + apurados);
-				} else {
-					votos.put(candidatos, apurados);
-				}
-
+		try (InputStream in = AppApuracaoVotos.class.getResourceAsStream(resourcePath)) {
+			
+			if (in == null) {
+				System.err.println("Erro: Arquivo de recurso '" + resourcePath + "' não encontrado no classpath.");
+				return;
 			}
-			System.out.println("=== Resultados ====");
-			for (Map.Entry<Candidatos, Integer> votosFinal : votos.entrySet()) {
-				System.out.println(votosFinal.getKey().getNomeCandidato() + ": " + votosFinal.getValue());
+			
+			try (Scanner sc = new Scanner(in)) {
+				Map<Candidatos, Integer> votos = new HashMap<>();
+
+				while (sc.hasNextLine()) {
+					String[] linhas = sc.nextLine().split(",");
+					String nome = linhas[0];
+					Integer apurados = Integer.parseInt(linhas[1]);
+
+					Candidatos candidatos = new Candidatos(nome, apurados);
+					if (votos.containsKey(candidatos)) {
+						votos.put(candidatos, votos.get(candidatos) + apurados);
+					} else {
+						votos.put(candidatos, apurados);
+					}
+
+				}
+				System.out.println("=== Resultados ====");
+				for (Candidatos can : votos.keySet()) {
+					System.out.println(can + ", " + votos.get(can));
+				}
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (sc != null) {
-				sc.close();
-			}
 		}
-
 	}
-
 }
