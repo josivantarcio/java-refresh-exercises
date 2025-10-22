@@ -1,6 +1,6 @@
 package nelioAlves.explicacao.model.entities;
 
-public class Produtos {
+public class Produtos{
 
 	private String nome;
 	private Double preco;
@@ -25,5 +25,12 @@ public class Produtos {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+
+	@Override
+	public String toString() {
+		return nome + ", " + preco;
+	}
+	
+	
 
 }
