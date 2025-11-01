@@ -1,6 +1,6 @@
 package nelioAlves.explicacao.model.entities;
 
-public class Produtos{
+public class Produtos {
 
 	private String nome;
 	private Double preco;
@@ -26,11 +26,21 @@ public class Produtos{
 		this.preco = preco;
 	}
 
-	@Override
-	public String toString() {
-		return nome + ", " + preco;
+	public static boolean produtoPredicadoMaior100(Produtos p) {
+		return p.preco > 100.0;
+	}
+
+	public static void produtoConsumeMais10(Produtos p) {
+		p.setPreco(p.getPreco() * 1.1);
 	}
 	
-	
+	public static String produtoMapNomeMaiusculo(Produtos p) {
+		return p.getNome().toUpperCase();
+	}
+
+	@Override
+	public String toString() {
+		return nome + ", " + String.format("%.2f", preco);
+	}
 
 }
