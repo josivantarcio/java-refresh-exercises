@@ -22,11 +22,11 @@ public class AppProduct {
 		lista.add(new Produtos("Tablet", 2798.10));
 
 		ProductService ps = new ProductService();
-		double sum = ps.FilterSum(lista, p -> p.getPreco() < 15.);
+		double sum = ps.FilterSum(lista, p -> p.getPreco() < 15.0);
 
 		lista.forEach(System.out::println);
 		System.out.println(sum);
-		
+
 	}
 
 }
